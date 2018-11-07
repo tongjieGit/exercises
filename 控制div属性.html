@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  div {
+    position: relative;
+    margin:auto;
+    min-width: 100px;
+    min-height: 50px;
+    text-align: center;
+  }
+  #obj {
+    width: 100px;
+    height:100px;
+    background-color: #df5678;
+    margin-top:20px;
+  }
+</style>
+<body>
+  <div>
+    <button>变宽</button>
+    <button>变高</button>
+    <button>变色</button>
+    <button>隐藏</button>
+    <button>重置</button>
+    <div id="obj"></div>
+  </div>
+</body>
+</html>
+<script>
+  let buttons = document.getElementsByTagName('button')
+  let attrs = ['width', 'height', 'background', 'display', 'display']
+  let attrValus = ['200px', '200px', '#563879', 'none', 'block']
+
+  window.onload = function() {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].onclick = function() {
+        change(attrs[i], attrValus[i])
+      }
+    }
+  }
+  function change(attr, attrValue) {
+    let obj = document.getElementById('obj')
+    obj.style[attr] = attrValue
+  }
+</script>

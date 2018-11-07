@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  ul {
+    position: relative;
+    margin:auto;
+    min-width: 100px;
+    min-height: 50px;
+    text-align: center;
+  }
+  li {
+    width: 80px;
+    height:30px;
+    background-color: #df5678;
+    margin-top:20px;
+    list-style-type: none;
+  }
+  ul:nth-child(1) li{
+    width:30px;
+    height:30px;
+    background-color: #fff;
+  }
+</style>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <ul>
+      <li>新闻</li>
+      <li>综艺</li>
+      <li>音乐</li>
+      <li>股票</li>
+      <li>电影</li>
+      <li>问答</li>
+    </ul>
+</body>
+</html>
+<script>
+  let buttons = document.getElementsByTagName('button')
+  let attrs = ['width', 'height', 'background', 'display', 'display']
+  let attrValus = ['200px', '200px', '#563879', 'none', 'block']
+
+  window.onload = function() {
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].onclick = function() {
+        change(attrs[i], attrValus[i])
+      }
+    }
+  }
+  function change(attr, attrValue) {
+    let obj = document.getElementById('obj')
+    obj.style[attr] = attrValue
+  }
+</script>
