@@ -7,33 +7,46 @@
   <title>Document</title>
 </head>
 <style>
-  ul {
+  .skin-style {
     position: relative;
     margin:auto;
     min-width: 100px;
     min-height: 50px;
     text-align: center;
   }
-  li {
+  .skin-style li{
+    width:30px;
+    height:30px;
+    list-style-type: none;
+    background-color: green;
+  }
+  .menu {
+    position: relative;
+    margin:auto;
+    min-width: 100px;
+    min-height: 50px;
+    text-align: center;
+  }
+  .menu li {
     width: 80px;
     height:30px;
     background-color: #df5678;
     margin-top:20px;
     list-style-type: none;
   }
-  ul:nth-child(1) li{
+  /* .menu:nth-child(1) li{
     width:30px;
     height:30px;
     background-color: #fff;
-  }
+  } */
 </style>
 <body>
-  <ul>
+  <ul class="skin-style">
     <li></li>
     <li></li>
     <li></li>
   </ul>
-  <ul>
+  <ul class="menu">
       <li>新闻</li>
       <li>综艺</li>
       <li>音乐</li>
