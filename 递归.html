@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+ let data  = [ { "menuCode": 100, "menuName": "酒店管理", "isVisible": 0, "children": [ { "menuCode": 1001, "menuName": "系统管理", "isVisible": 0, "children": [ { "menuCode": 1001001, "menuName": "角色管理", "isVisible": 0, "url": "/roles", "type": "solution" }, { "menuCode": 1001002, "menuName": "管理员", "isVisible": 0, "url": "/admins", "type": "team" }, { "menuCode": 1001003, "menuName": "操作日志", "isVisible": 0, "url": "/optlog", "type": "code-square-o" } ], "type": "setting" }, { "menuCode": 1002, "menuName": "酒店管理", "isVisible": 0, "children": [ { "menuCode": 1002001, "menuName": "酒店列表", "isVisible": 0, "url": "/hotel", "type": "bars" }, { "menuCode": 1002002, "menuName": "酒店分组", "isVisible": 0, "url": "/category", "type": "bars" } ], "type": "hotel" }, { "menuCode": 1003, "menuName": "订单管理", "isVisible": 0, "children": [ { "menuCode": 1003001, "menuName": "运营商移动支付订单", "isVisible": 0, "url": "/hotel/mobileOrderList", "type": "solution" }, { "menuCode": 1003002, "menuName": "运营商影视房订单", "isVisible": 0, "url": "/hotel/order", "type": "solution" } ], "type": "setting" }, { "menuCode": 1004, "menuName": "运营商管理", "isVisible": 0, "children": [ { "menuCode": 1004001, "menuName": "运营商列表", "isVisible": 0, "url": "/hotel/operator-list", "type": "solution" }, { "menuCode": 1004002, "menuName": "酒店列表", "isVisible": 0, "url": "/operators/hotels", "type": "solution" } ], "type": "setting" } ] }, { "menuCode": 110, "menuName": "运维管理", "isVisible": 0 }, { "menuCode": 120, "menuName": "内容管理", "isVisible": 1, "children": [ { "menuCode": 1201, "menuName": "栏目管理", "isVisible": 1, "children": [ { "menuCode": 1201001, "menuName": "栏目下发管理", "isVisible": 1, "url": "/content", "type": "bars" }, { "menuCode": 1201002, "menuName": "栏目库", "isVisible": 0, "url": "/content/items-store", "type": "book" }, { "menuCode": 1201003, "menuName": "栏目树库", "isVisible": 0, "url": "/content/items-tree-store", "type": "sharealt" } ], "type": "book" }, { "menuCode": 1202, "menuName": "素材管理", "isVisible": 0, "children": [ { "menuCode": 1202001, "menuName": "公共图片库", "isVisible": 0, "url": "/content/public-pics-store", "type": "picture" } ], "type": "hdd" }, { "menuCode": 1203, "menuName": "本地生活圈", "isVisible": 0, "children": [ { "menuCode": 1203001, "menuName": "商户库", "isVisible": 0, "children": [ { "menuCode": 1203001001, "menuName": "添加商户", "isVisible": 0, "url": "/content/add-merchant", "type": "plus-square-o" }, { "menuCode": 1203001002, "menuName": "全部商户", "isVisible": 0, "url": "/content/all-merchant", "type": "calculator" } ], "type": "laptop" }, { "menuCode": 1203002, "menuName": "商户审核", "isVisible": 0, "children": [ { "menuCode": 1203002001, "menuName": "待审核", "isVisible": 0, "url": "/content/unchecked", "type": "minus-circle-o" }, { "menuCode": 1203002002, "menuName": "已通过", "isVisible": 0, "url": "/content/passed", "type": "check-circle-o" }, { "menuCode": 1203002003, "menuName": "驳回", "isVisible": 0, "url": "/content/rejected", "type": "close-circle-o" } ], "type": "question-circle-o" }, { "menuCode": 1203003, "menuName": "商户发布", "isVisible": 0, "children": [ { "menuCode": 1203003001, "menuName": "发布管理", "isVisible": 0, "url": "/content/publish-management", "type": "filter" }, { "menuCode": 1203003002, "menuName": "发布日志", "isVisible": 0, "url": "/content/publish-logs", "type": "tags-o" } ], "type": "file-ext" }, { "menuCode": 1203004, "menuName": "发布情况", "isVisible": 0, "children": [ { "menuCode": 1203004001, "menuName": "酒店发布情况", "isVisible": 0, "url": "/content/hotel-publish-status", "type": "hotel" } ], "type": "exclamation-circle-o" } ], "type": "retweet" }, { "menuCode": 1204, "menuName": "主菜单管理", "isVisible": 0, "children": [ { "menuCode": 1204001, "menuName": "主菜单素材", "isVisible": 0, "url": "/main_menu/material", "type": "bars" }, { "menuCode": 1204002, "menuName": "主菜单管理", "isVisible": 0, "url": "/main_menu/index", "type": "bars" }, { "menuCode": 1204003, "menuName": "发布管理", "isVisible": 0, "url": "/main_menu/release", "type": "bars" } ] }, { "menuCode": 1205, "menuName": "媒资管理", "isVisible": 0, "children": [ { "menuCode": 1205001, "menuName": "待入库", "isVisible": 0, "url": "/media/pending", "type": "bars" }, { "menuCode": 1205002, "menuName": "影片库", "isVisible": 0, "url": "/media/index", "type": "bars" }, { "menuCode": 1205003, "menuName": "专题库", "isVisible": 0, "url": "/media/topic", "type": "bars" }, { "menuCode": 1205004, "menuName": "媒资提供方列表", "isVisible": 0, "url": "/media/fromlist", "type": "bars" } ] }, { "menuCode": 1206, "menuName": "VOD首页管理", "isVisible": 0, "children": [ { "menuCode": 1206001, "menuName": "发布管理", "isVisible": 0, "url": "/vod_home/release_manage", "type": "bars" }, { "menuCode": 1206002, "menuName": "VOD首页管理", "isVisible": 0, "url": "/vod_home/home_manage", "type": "bars" }, { "menuCode": 1206003, "menuName": "首页发布日志", "isVisible": 0, "url": "/vod_home/release_log", "type": "bars" } ] } ] }, { "menuCode": 130, "menuName": "数据中心", "isVisible": 1, "children": [ { "menuCode": 1301, "menuName": "媒资方数据", "isVisible": 1, "children": [ { "menuCode": 1301001, "menuName": "酒店数据报表", "isVisible": 1 }, { "menuCode": 1301002, "menuName": "酒店VOD区间统计报表", "isVisible": 1 }, { "menuCode": 1301003, "menuName": "影片统计报表", "isVisible": 1 }, { "menuCode": 1301004, "menuName": "媒资提供方收入报表", "isVisible": 1, "url": "/datacenter", "type": "bars" } ], "type": "book" } ] } ]
+
+
+let authMenu = []
+console.log(data, 'data')
+function getAuthOrity(data) { 
+  if (Array.isArray(data)) {
+    if (!data.length) return 
+    data.map(e => {
+      if (e.isVisible) {
+        if (!e.children || !e.children.length) {
+          authMenu.push(e)
+          console.log(authMenu, 'authMenu1')
+        } else if (e.children && e.children.length){
+          getAuthOrity(e.children)
+        }
+      }
+    })
+  }
+}
+
+let urls = []
+function getUrls(docs) {
+  docs.map((doc) => {
+    if (doc.isVisible === 1 && Array.isArray(doc.children)) {
+      getUrls(doc.children)
+    } else if (doc.isVisible === 1 && doc.url) {
+      urls.push(doc.url);
+    } else {
+      return false;
+    }
+  });
+  console.log(urls, 'urlsurlsurlsurlsurls')
+  return urls;
+}
+function checkNorPage() {
+  if (data) {
+    console.log(getUrls(data), '000')
+  }
+}
+
+
+
+getAuthOrity(data);
+</script>

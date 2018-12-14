@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+window.onload = function() {
+  let  reg;//正则规则
+  //1
+  reg = /hello/ //精确匹配hello
+  console.log(reg.test('hello')) //true
+  console.log(reg.test('hel***lo')) //false
+
+  //2
+  reg = /ab{2,5}c/g  //g是全局匹配  //全局匹配a开头，中间出现2-5次b，结尾是c的字符串
+  let str = 'abc abbc abcccc aaaaaaabc aabc'
+  console.log(str.match(reg)) //['abbc']
+
+  //3
+  reg = /a[123]c/g //全局匹配a开头，中间为1或2或3，第三位是c的字符串
+  let str1 = 'a0c, a1c, a2c, a3c, a10c'
+  console.log(str1.match(reg)) //['a1c', 'a2c', 'a3c']
+
+  //4
+  reg = /[123]/g //全局匹配中间1或2或3
+  let str2 = '1ww, 2dd, dfg, 773, 123'
+  console.log(str2.match(reg)) //['1', '2', '3', '1', '2', '3']
+  str2 = '566'
+  console.log(str2.match(reg)) //null
+
+  //5 范围表示法
+  reg = /0-9a-z/  //'-符号'来写区间
+
+  //6 排除 ^
+  reg = /^abc/ //除a,b,c之外的
+
+  //7 常见的简写形式
+  reg = /\d/ // /0-9/
+  reg = /\D/ // /^0-9/
+  reg = /\w/ // /0-9a-zA-Z_/
+  reg = /\W/ // /^0-9a-zA-Z_/
+  reg = /\s/ // /\t\v\n\r\f/ 空格 水平制表符 垂直制表符 换行符 回车符 换页符
+  reg = /\S/ // /……\t\v\n\r\f/ 非 空格 水平制表符 垂直制表符 换行符 回车符 换页符
+  reg = /./ //通配符
+  //匹配任意字符  /\d\D/ /\w\W/ /\s\S/ /^/ 
+
+  //8 量词
+  // {m,} 至少出现m次
+  // {m} 出现m次
+  // + 等价于 {1,} 至少出现1次
+  // - 等价于 {0,} 出现任意次数 包括0次
+  
+  //9 贪婪匹配与惰性匹配
+
+  reg = /\d{2,5}/g //贪婪匹配
+  reg = /\d{2,5}?/g //惰性匹配 在两次后面加上问号就能实现惰性匹配  一旦匹配到了，就不会尝试3，4，5个数字的
+  
+  //10 多选分支 |  
+  reg = /1|2/g
+  let str4 = '12 67 72'
+  console.log(str4.match(reg)) // ['1', '2', '2']
+  reg = /good|goodbye/g
+  str4 = 'goodbye'
+  console.log(str4.match(reg)) // ['good'] 分支结构也是惰性的
+
+  //11 例子
+  //11.1匹配颜色
+  reg  = /#([0-9a-zA-Z]{6}||[0-9a-zA-Z]{3})/g
+  let str5 = '#EFg #5678 #hjuier'
+  console.log(str5.match(reg))
+  //11.2匹配时间
+  reg = /\d{2}:\d{2}/
+
+}
+
+</script>
