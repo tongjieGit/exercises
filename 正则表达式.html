@@ -72,12 +72,144 @@ window.onload = function() {
 
   //11 例子
   //11.1匹配颜色
-  reg  = /#([0-9a-zA-Z]{6}||[0-9a-zA-Z]{3})/g
+  reg  = /#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/g
   let str5 = '#EFg #5678 #hjuier'
   console.log(str5.match(reg))
   //11.2匹配时间
-  reg = /\d{2}:\d{2}/
+  reg = /^([01]\d|[2][0-3]):[0-5]\d$/ //^和$分别表示开头和结尾
+  let str6 = '23:88 '
+  console.log(reg.test(str6)) //false
+  str6 = '23:01'
+  console.log(reg.test(str6)) //true
+  str6 = '23:01    '
+  console.log(reg.test(str6)) //false
+  reg = /([01]\d|[2][0-3]):[0-5]\d/g 
+  str6 = '23:01 01:10 46:00 08:20'
+  console.log(str6.match(reg)) //['23:01', '01:10', '08:20']
+  reg = /([01]\d|[2][0-3]):([0-5]\d)/
+  console.log(str6.match(reg)) //待研究 结果   分组的结果
+  //11.3匹配日期
+  reg = /^\d{4}-(0[1-9]|1[0-2])-0[1-9]|[12][0-9]|3[01]$/
+  let str7 = '2018-12-11'
+  console.log(reg.test(str7)) //true
+  //11.4 windows操作系统文件路径
+  reg = /^[a-zA-Z]:\\([^\\:*<>|"?\r\n/]+\\)*([^\\:*<>|"?\r\n/]+)?$/
+  let str8 = 'D:\\呵呵'
+  console.log(reg.test(str8)) //true
+  //11.5 匹配id
+  let str9 = '<div id="testId" class="testClass"></div>'
+  reg = /id=".*"/g
+  console.log(str9.match(reg)) //["id="testId" class="testClass""]
+  reg = /id=".*?"/g
+  console.log(str9.match(reg)) //["id="testId""]
+  reg = /id="[^"]*"/
+  console.log(str9.match(reg)[0]) //id="testId"
 
+  //12 正则表达式位置匹配
+  //es5中，共有6个锚
+  // ^ 卡头 $结尾 \b 单词边界 \B非单词边界 (?=p)后面紧跟p (?!p)后面没跟p
+  //12.1 ^  $
+  let str10 = 'hello'
+  str10 = str10.replace(/^|$/, '**')
+  console.log(str10) //**hello
+  str10 = str10.replace(/^|$/g, '**')
+  console.log(str10) //****hello**
+  //12.2 多行匹配模式（m）
+  str10 = 'i\nlove\nyou'
+  str10 = str10.replace(/^|$/gm, '~~')
+  console.log(str10) // ~~i~~
+                    // ~~love~~
+                    // ~~you~~
+  //12.2 \b \B
+  str10 = 'you are a lucky girl!!!'
+  str10 = str10.replace(/\b/g, '~')
+  console.log(str10) // ~you~ ~are~ ~a~ ~lucky~ ~girl~!!!
+  str10 = str10.replace(/\B/g, '*')
+  console.log(str10) // *~y*o*u~* *~a*r*e~* *~a~* *~l*u*c*k*y~* *~g*i*r*l~*!*!*!*
+  //12.3 (?=p) (?!p)
+  str10 = 'hello'
+  str10 = str10.replace(/(?=e)/g, '~')
+  console.log(str10) //h~ello
+  str10 = 'hello'
+  str10 = str10.replace(/(?!e)/g, '~')
+  console.log(str10) //~he~l~l~o~
+
+  //12.4 例子
+  //数字的千位分隔符表示法
+  str10 = '12345678'
+  reg = /(?=\d{3}$)/g
+  str10 = str10.replace(reg, ',')
+  console.log(str10) //12345,678
+  str10 = '123456789'
+  reg = /(?=(\d{3})+$)/g
+  str10 = str10.replace(reg, ',')
+  console.log(str10) //,123,456,789
+  str10 = '123456789'
+  reg = /(?!^)(?=(\d{3})+$)/g
+  str10 = str10.replace(reg, ',')
+  console.log(str10) //123,456,789
+  str10 = '123456789 3456789'
+  reg = /(?!\b)(?=(\d{3})+\b)/g
+  str10 = str10.replace(reg, ',')
+  console.log(str10) //123,456,789 3,456,789
+  //格式化
+  str10 = 6666
+  str10 = str10.toFixed(2).replace(reg, ',')
+  console.log(str10) //6,666.00
+  str10 = str10.replace(/^/g, '$ ')
+  console.log(str10) //$ 6,666.00
+  //密码验证
+
+
+  //13 正则表达式括号的作用
+  //13.1 分组和分支
+  reg = /(ab)+/g
+  reg = /^i love (you|me)$/g
+  //13.2 分组引用
+  //提取数据
+  let str11 = '2018-12-27'
+  reg = /^(\d{4})-(\d{2})-(\d{2})$/
+  console.log(str11.match(reg))
+  //13.3 替换
+  console.log(str11.replace(reg, '$2/$3/$1')) //12/27/2018
+  //13.4 分组引用
+  reg = /^\d{4}(-|\/|\.)\d{2}\1\d{2}/
+  str11 = '2018.12.27'
+  console.log(reg.test(str11)) //true
+  str11 = '2018-12-27'
+  console.log(reg.test(str11)) //true
+  str11 = '2018/12/27'
+  console.log(reg.test(str11)) //true
+  str11 = '2018.12-27'
+  console.log(reg.test(str11)) //false
+  //括号嵌套以左括号为准
+  //\10表示第10个分组
+  //分组不存在不会报错，会对引用进行转义
+  //13.5 trim()方法模拟
+  str11 = ' love  '
+  reg = /^\s+|\s+$/g
+  console.log(str11.replace(reg, '')) //love
+  //13.6 单词首字母转换为大写
+  str11 = 'i love you'
+  function toUperLetter(str) {
+    return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) {
+      return c.toUpperCase()
+    })
+  }
+  console.log(toUperLetter(str11)) //I Love You
+
+  //14 正则回溯法原理再上网了解一下，深刻理解****
+
+  //15 正则表达式的拆分 学会读理解正则
+
+  //16 正则表达式的构建  不滥用正则，有简单的方案便可舍弃正则
+
+  //17 正则表达式编程
+  //search match split replace (string)
+  //test exec (reg)
+
+  
+  //多看多写多验证，完结！！！
 }
 
 </script>
