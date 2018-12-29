@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+</html>
+<script>
+//1. 判断对象类型属性 typeof  constructor
+var num = '111'
+console.log(typeof num) //string
+console.log(num.constructor == String) //true
+num = 222
+console.log(typeof num) //number
+console.log(num.constructor == Number) //true
+num = [1, 2]
+console.log(typeof num) //object
+console.log(num.constructor == Array) //true
+
+//2. 变量未定义直接赋值，会被解析成全局变量
+
+//3. 原型继承
+//_proto_ 属性(隐式原型属性）
+//prototype(显式原型）属性
+//当这个对象没有这个属性的时候，去它自身的隐式原型中找，它自身的隐式原型就是它构造函数（Foo）的显式原型（Foo.prototype）
+
+function person(name) {
+  this.name = name
+}
+person.prototype.getName = function() {
+  return this.name
+}
+function user(name, things) {
+  this.name = name
+  this.things = things
+}
+user.prototype = new person()
+user.prototype.getThings = function() {
+  return this.things
+}
+console.log(person)
+var newUser = new user('xiaohong', 'eat')
+console.log(newUser)
+console.log(newUser.getName())
+
+//构造继承
+
+</script>
