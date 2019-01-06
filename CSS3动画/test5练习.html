@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  
+.draw{
+  position: absolute;
+  background-color: #ccc;
+  width:100%;
+  height:60px;
+  bottom: 0;
+}
+.add {
+  display: inline-block;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  font-size: 50px;
+  color:#fff;
+  background-color: pink;
+  text-align: center;
+  line-height: 50px;
+  transition: all 500ms ease-in-out;
+  /* top: 0; */
+  bottom: 30px;
+  z-index:999;
+}
+.add:hover{
+  transform: rotate(-45deg);
+  background-color: #aaa;
+  transition: all 500ms ease-in-out;
+}
+.light {
+  opacity: 0;
+  width:100%;
+  height:200px;
+  position: absolute;
+  bottom: 60px;
+  transition: all 500ms ease-in-out;
+} 
+.light-on {
+  opacity: 1;
+  transition: all 500ms ease-in-out;
+}
+span {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  position: absolute;
+  bottom:0px;
+  margin:auto;
+  /* top: 0; */
+  left: 0;
+  right: 0;
+  bottom:-30px;
+}
+.yellow {
+  background-color: yellow;
+  transition-duration: 1s;
+}
+.green {
+  background-color: green;
+  transition-duration: 1s;
+}
+.red {
+  background-color: red;
+  transition-duration: 1s;
+}
+
+.yellow-on {
+  left:-40%;
+  bottom:50px;
+  -webkit-animation: yellowon 1s linear  alternate  ;
+  -moz-animation: yellowon 1s linear alternate  ;
+  -ms-animation: yellowon 1s linear  alternate  ;
+}
+
+.green-on {
+  bottom:70px;
+  -webkit-animation: greenon 1s linear  alternate  ;
+  -moz-animation: greenon 1s linear alternate  ;
+  -ms-animation: greenon 1s linear  alternate  ;
+}
+
+.red-on {
+  left:40%;
+  bottom:50px;
+  -webkit-animation: redon 1s linear  alternate  ;
+  -moz-animation: redon 1s linear alternate  ;
+  -ms-animation: redon 1s linear  alternate  ;
+}
+
+@keyframes yellowon {
+  0% { left: 0; bottom:0; }
+  50% { left: -40%; bottom:50px;}
+  80% { left: -30%; bottom:40px;}
+  90% { left: -40%; bottom:50px;}
+  95% { left: -35%; bottom:45px;}
+  100% { left: -40%; bottom:50px; }
+}
+
+@keyframes greenon {
+  0% {  bottom:0; }
+  50% {  bottom:70px;}
+  80% {  bottom:60px;}
+  90% {  bottom:70px;}
+  95% {  bottom:65px;}
+  100% {  bottom:70px; }
+}
+
+@keyframes redon {
+  0% { left: 0; bottom:0; }
+  50% { left: 40%; bottom:50px;}
+  80% { left: 30%; bottom:40px;}
+  90% { left: 40%; bottom:50px;}
+  95% { left: 35%; bottom:45px;}
+  100% { left: 40%; bottom:50px; }
+}
+
+</style>
+<body>
+  <div class="draw" id="drawBtn">
+    <span class="add" id="addBtn">+</span>
+  </div>
+  <div class="light" id="lightBtn">
+    <span class="yellow" id="yellowBtn"></span>
+    <span class="green" id="greenBtn"></span>
+    <span class="red" id="redBtn"></span>
+  </div>
+</body>
+</html>
+<script>
+let addbtn = document.getElementById('addBtn') 
+let lightbtn = document.getElementById('lightBtn')
+let drawbtn = document.getElementById('drawBtn')
+let yellowbtn = document.getElementById('yellowBtn')
+let greenbtn = document.getElementById('greenBtn')
+let redbtn = document.getElementById('redBtn')
+addbtn.addEventListener('click', function() {
+  event.stopPropagation();
+  lightbtn.className += ' light-on' 
+  yellowbtn.className += ' yellow-on'
+  greenbtn.className += ' green-on'
+  console.log(redbtn, '000000')
+  redbtn.className += ' red-on'
+})
+drawbtn.addEventListener('click', function() {
+  lightbtn.className = 'light'
+  yellowbtn.className = 'yellow'
+  greenbtn.className = 'green'
+  redbtn.className = 'red'
+})
+
+</script>

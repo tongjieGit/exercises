@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+html,body,div {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  position: relative;
+  width: 2000px;
+  height: 2000px;
+}
+.balloon {
+  position: relative;
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin: 0 20px;
+  top:0;
+  text-align: center;
+  font-size: 12px;
+  line-height: 80px;
+  border-radius: 80px;
+  color: rgb(247, 133, 2);
+  background-color: rgba(218, 165, 165, 0.5);
+}
+
+.container .balloon:nth-child(3n) {
+  background-color: rgba(255, 222, 173, 0.218);
+}
+
+.container .balloon:nth-child(3n-1) {
+  background-color: rgba(0, 250, 154, 0.555);
+}
+
+.container .balloon:nth-child(3n-2) {
+  background-color: rgba(147, 112, 216, 0.418);
+}
+
+.container:hover .default{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+}
+
+
+.container:hover .linear{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+  /** 过渡方式*/
+  transition-timing-function: linear;
+}
+
+.container:hover .ease{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+  /** 过渡方式*/
+  transition-timing-function: ease;
+}
+
+.container:hover .ease-in{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+  /** 过渡方式*/
+  transition-timing-function: ease-in;
+}
+
+.container:hover .ease-out{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+  /** 过渡方式*/
+  transition-timing-function: ease-out;
+}
+
+.container:hover .ease-in-out{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+  /** 过渡方式*/
+  transition-timing-function: ease-in-out;
+}
+
+.container:hover .cubic-bezie{
+  top: 300px;
+  /** 过渡属性*/
+  transition-property: top;
+  /** 过渡时长*/
+  transition-duration: 5s;
+  /** 过渡方式*/
+  transition-timing-function: cubic-bezie(0.59,-0.62,0.06,0.84);
+}
+
+
+
+</style>
+<body>
+  <div class="container">
+    <div class="balloon default ">default</div>
+    <div class="balloon linear ">linear</div>
+    <div class="balloon ease ">ease</div>
+    <div class="balloon ease-in ">ease-in</div>
+    <div class="balloon ease-out ">ease-out</div>
+    <div class="balloon ease-in-out ">ease-in-out</div>
+    <div class="balloon cubic-bezie ">cubic-bezie</div>
+  </div><div class="draw">
+      <span class="ball"></span>
+  </div>
+
+</body>
+</html>
+<script>
+//transform
+
+</script>

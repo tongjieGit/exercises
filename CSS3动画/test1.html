@@ -7,16 +7,66 @@
   <title>Document</title>
 </head>
 <style>
-
+.draw {
+  margin: auto;
+  margin-top:300px;
+  width:100px;
+  height: 100px;
+  background-color: pink;
+  /* transform: translate(200px,200px); */
+  -webkit-transition: all 1.5s ease-out;
+  -moz-transition: all 1.5s ease-out;
+  transition: all 1.5s ease-out;
+ 
+}
+.draw:hover{
+  transform-origin: 50px 50px;
+  transform: scale(7);
+  -webkit-transition: all 1.5s ease;
+  -moz-transition: all 1.5s ease;
+  transition: all 1.5s ease;
+  /* -webkit-animation: myani 1s ease 2 alternate 0s both;
+-moz-animation: myani 1s ease 2 alternate 0s both;
+-ms-animation: myani 1s ease 2 alternate 0s both; */
+ 
+}
+@keyframes myani {
+  0% {
+  background-color: white;
+  margin-left:0px;
+  }
+  50% {
+  background-color: red;
+  margin-left:100px;
+  }
+  100% {
+  background-color: pink;
+  margin-left:200px;
+  }
+  }
+.box {
+  width:150px;
+  height:50px;
+  /* padding: 10px; */
+  background-color: #cd0000;
+  text-align: center;
+}
+.content{
+  display: inline-block;
+  text-align: left;
+}
 </style>
 <body>
   <div class="draw">
-    <!-- <div class=""></div> -->
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    
+  </div>
+  
+  <div class="box">
+    <span class="content">哈哈哈哈哈哈哈哈</span>
   </div>
 </body>
 </html>
+<script>
+//transform
+
+</script>

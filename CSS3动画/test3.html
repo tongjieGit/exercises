@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+html,body,div {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  padding-top: 50px;
+  position: relative;
+  width: 2000px;
+  height: 600px;
+  background-image: linear-gradient(to bottom, #c9dbe9 0%,#fff 100%);
+}
+.sun {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  top: 50px;
+  left: 150px;
+  float: left;
+  background-image: linear-gradient(to bottom, #ff3c00 ,#ffa600);
+  box-shadow: 0 0 60px #ff00b6;
+}
+
+.cloud {
+  position: relative;
+  margin: 0px auto;
+  width: 200px;
+  height: 60px;
+  border-radius: 200px;
+  background-color: #fff;
+}
+
+.cloud::before, .cloud::after {
+  position: relative;
+  content:'';
+  background-color: #fff;
+  width: 100px;
+  height: 80px;
+  top: -15px;
+  left: 10px;
+  display: block;
+  border-radius: 100px;
+  transform: rotate(30deg)
+
+}
+.cloud::after {
+  left: 60px;
+  top: -100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
+}
+
+
+.container:hover .default{
+  animation: moveclouds 7s ease-out infinite normal;
+}
+.container:hover .small{
+  animation: moveclouds 6s ease-in-out alternate-reverse;
+}
+.container:hover .middle{
+  animation: moveclouds 8s cubic-bezier(0.5, 0.5, 0.5, 0.5) alternate;
+}
+.container:hover .bigger{
+  animation: moveclouds 10s ease-out infinite reverse;
+}
+
+.default {
+  top: 100px;
+  left: 300px;
+  transform: scale(0.8);
+}
+
+.small {
+  top: 70px;
+  transform: scale(0.5);
+}
+.middle {
+  top: 120px;
+  left: 150px; 
+  transform: scale(0.7);
+}
+.bigger {
+  top: 80px;
+  left: -80px;
+  opacity: 0.6;
+  transform: scale(1.2);
+}
+
+@keyframes moveclouds {
+  0% {margin-left: 1000px}
+  100% {margin-left: -300px;}
+}
+
+
+
+
+</style>
+<body>
+  <div class="container">
+    <div class="sun"></div>
+    <div class="cloud default"></div>
+    <div class="cloud small"></div>
+    <div class="cloud middle"></div>
+    <div class="cloud bigger"></div>
+</div>
+
+</body>
+</html>
+<script>
+//transform
+
+</script>

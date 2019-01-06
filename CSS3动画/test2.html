@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+.draw{
+  width:400px;
+  height: 300px;
+  background-color: #ccc;
+  margin: auto;
+}
+.ball {
+  display:inline-block;
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  background-color: pink;
+  margin-top:0;
+  /* margin-left:100px; */
+
+  /* -webkit-animation: myani 1s ease 2 alternate 0s both;
+  -moz-animation: myani 1s ease 2 alternate 0s both;
+  -ms-animation: myani 1s ease 2 alternate 0s both; */
+
+ 
+  /* animation: dropdown 1s linear infinite ; */
+}
+.draw:hover .ball {
+  margin-top:200px;
+  background-color: red;
+  -webkit-animation: myani 1s ease 2 alternate 0s both;
+  -moz-animation: myani 1s ease 2 alternate 0s both;
+  -ms-animation: myani 1s ease 2 alternate 0s both;
+}
+@keyframes myani {
+    0% { margin-top: 0; }
+    30% { margin-top: 200px; }
+    50% { margin-top: 150px; background-color:green}
+    70% { margin-top: 200px; }
+    80% { margin-top: 0px;  margin-left:200px;}
+    100% { margin-top: 0px;  }
+  }
+
+</style>
+<body>
+
+  </div><div class="draw">
+      <span class="ball"></span>
+  </div>
+
+</body>
+</html>
+<script>
+//transform
+
+</script>
